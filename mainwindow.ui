@@ -145,6 +145,9 @@
     <layout class="QGridLayout" name="gridLayout_3">
      <item row="2" column="2">
       <widget class="QSlider" name="horizontalSlider_DIMZ">
+       <property name="minimum">
+        <number>1</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -155,6 +158,9 @@
      </item>
      <item row="1" column="2">
       <widget class="QSlider" name="horizontalSlider_DIMY">
+       <property name="minimum">
+        <number>1</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -183,6 +189,9 @@
      </item>
      <item row="0" column="2">
       <widget class="QSlider" name="horizontalSlider_DIMX">
+       <property name="minimum">
+        <number>1</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -194,7 +203,7 @@
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>30</y>
+      <y>40</y>
       <width>151</width>
       <height>121</height>
      </rect>
@@ -506,109 +515,73 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonPutVoxel">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>51</width>
-      <height>20</height>
+      <width>698</width>
+      <height>27</height>
      </rect>
     </property>
-    <property name="text">
-     <string>PutVoxel</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonCutVoxel">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>10</y>
-      <width>51</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CutVoxel</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonPutBox">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>10</y>
-      <width>61</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PutBox</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonCutBox">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>10</y>
-      <width>61</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CutBox</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonPutEsphere">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>10</y>
-      <width>61</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PutEsphere</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonCutEsphere">
-    <property name="geometry">
-     <rect>
-      <x>340</x>
-      <y>10</y>
-      <width>61</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CutEsphere</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonPutElipse">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>10</y>
-      <width>71</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PutElipse</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButtonCutElipse">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>10</y>
-      <width>71</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CutElipse</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButtonPutBox">
+       <property name="text">
+        <string>PutBox</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonCutBox">
+       <property name="text">
+        <string>CutBox</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonPutEsphere">
+       <property name="text">
+        <string>PutEsphere</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonCutElipse">
+       <property name="text">
+        <string>CutElipse</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonCutVoxel">
+       <property name="text">
+        <string>CutVoxel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonCutEsphere">
+       <property name="text">
+        <string>CutEsphere</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonPutElipse">
+       <property name="text">
+        <string>PutElipse</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonPutVoxel">
+       <property name="text">
+        <string>PutVoxel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -652,6 +625,17 @@
     <slot>setRed(int)</slot>
     <slot>setGreen(int)</slot>
     <slot>setBlue(int)</slot>
+    <slot>setCutVoxel()</slot>
+    <slot>setPutBox()</slot>
+    <slot>setCutBox()</slot>
+    <slot>setPutEsphere()</slot>
+    <slot>setCutEsphere()</slot>
+    <slot>setPutElipse()</slot>
+    <slot>setCutElipse()</slot>
+    <slot>setDimX(int)</slot>
+    <slot>setDimY(int)</slot>
+    <slot>setDimZ(int)</slot>
+    <slot>setRadius(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -702,54 +686,6 @@
     <hint type="destinationlabel">
      <x>420</x>
      <y>421</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_DIMZ</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_DZ</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>768</x>
-     <y>410</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>560</x>
-     <y>401</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_DIMY</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_DY</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>768</x>
-     <y>384</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>560</x>
-     <y>371</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_DIMX</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_DX</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>768</x>
-     <y>358</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>560</x>
-     <y>341</y>
     </hint>
    </hints>
   </connection>
@@ -819,141 +755,13 @@
   </connection>
   <connection>
    <sender>pushButtonPutVoxel</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>matriz</receiver>
-   <slot>PutVoxel()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>44</x>
-     <y>44</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>46</x>
-     <y>99</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonCutVoxel</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>matriz</receiver>
-   <slot>CutVoxel()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>90</x>
-     <y>45</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>91</x>
-     <y>98</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonPutBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>matriz</receiver>
-   <slot>PutBox()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>161</x>
-     <y>43</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>160</x>
-     <y>109</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonCutBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>matriz</receiver>
-   <slot>CutBox()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>235</x>
-     <y>34</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>235</x>
-     <y>100</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonPutEsphere</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>matriz</receiver>
-   <slot>PutEsphere()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>298</x>
-     <y>40</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>295</x>
-     <y>108</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonCutEsphere</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>matriz</receiver>
-   <slot>CutEsphere()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>372</x>
-     <y>36</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>370</x>
-     <y>106</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonPutElipse</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>matriz</receiver>
-   <slot>PutElipse()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>444</x>
-     <y>41</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>450</x>
-     <y>108</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonCutElipse</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>matriz</receiver>
-   <slot>CutElipse()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>499</x>
-     <y>50</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>500</x>
-     <y>108</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonPutVoxel</sender>
    <signal>clicked()</signal>
    <receiver>matriz</receiver>
    <slot>setPutVoxel()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>23</x>
-     <y>39</y>
+     <x>640</x>
+     <y>40</y>
     </hint>
     <hint type="destinationlabel">
      <x>25</x>
@@ -1070,6 +878,182 @@
     <hint type="destinationlabel">
      <x>460</x>
      <y>412</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCutVoxel</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>setCutVoxel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>407</x>
+     <y>37</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>122</x>
+     <y>82</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonPutBox</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>setPutBox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>62</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>197</x>
+     <y>74</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCutBox</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>setCutBox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>146</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>88</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonPutEsphere</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>setPutEsphere()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>226</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>317</x>
+     <y>97</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCutEsphere</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>setCutEsphere()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>495</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>392</x>
+     <y>83</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonPutElipse</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>setPutElipse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>560</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>429</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCutElipse</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>setCutElipse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>531</x>
+     <y>98</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_DIMX</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setDimX(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>707</x>
+     <y>349</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>591</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_DIMY</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setDimY(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>750</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>579</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_DIMZ</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setDimZ(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>729</x>
+     <y>401</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>584</x>
+     <y>391</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_Raio</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setRadius(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>719</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>463</x>
+     <y>211</y>
     </hint>
    </hints>
   </connection>

@@ -18,6 +18,10 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
        setMouseTracking(true);
        escolha = 0;
        figura = new Sculptor(nx,ny,nz);
+       dimX = 1;
+       dimY = 1;
+       dimZ = 1;
+       radius = 1;
 }
 
 void Plotter::paintEvent(QPaintEvent *event)
@@ -76,6 +80,11 @@ Plotter::Plotter(int _nx,int _ny, int _nz)
 
 }
 
+Plotter::~Plotter()
+{
+    deleteMatriz();
+}
+
 void Plotter::setNx(int _nx)
 {
     nx =_nx;
@@ -100,10 +109,95 @@ void Plotter::setPutVoxel()
     qDebug() << "posição em X , Y, Z ->";
 }
 
+void Plotter::setCutVoxel()
+{
+    escolha =1;
+
+}
+
+void Plotter::setPutBox()
+{
+    escolha =2;
+    qDebug() << "putbox";
+}
+
+void Plotter::setCutBox()
+{
+    escolha =3;
+}
+
+void Plotter::setPutEsphere()
+{
+    escolha =4;
+}
+
+void Plotter::setCutEsphere()
+{
+ escolha =5;
+}
+
+void Plotter::setPutElipse()
+{
+ escolha =6;
+}
+
+void Plotter::setCutElipse()
+{
+ escolha =7;
+}
+
 void Plotter::setEscolha(int posX,int posY)
 {
     if(escolha == 0) {
         figura->putVoxel(posX,posY,posZ);
+    } else if(escolha == 1) {
+
+        figura->cutVoxel(posX,posY,posZ);
+    } else if(escolha == 2) {
+        int xF,yF,zF;
+        xF =posX+dimX;
+        yF = posY+dimY;
+        zF = posZ+dimZ;
+
+        if(xF >= nx) {
+            xF = nx;
+        }
+
+        if(yF >= ny) {
+            yF = ny;
+        }
+
+        if(zF >= nz) {
+            zF = nz;
+        }
+
+            figura->putBox(posX,xF,posY,yF,posZ,zF);
+
+    } else if(escolha == 3) {
+        int xF,yF,zF;
+        xF =posX+dimX;
+        yF = posY+dimY;
+        zF = posZ+dimZ;
+
+        if(xF >= nx) {
+            xF = nx;
+        }
+
+        if(yF >= ny) {
+            yF = ny;
+        }
+
+        if(zF >= nz) {
+            zF = nz;
+        }
+
+            figura->cutBox(posX,xF,posY,yF,posZ,zF);
+    } else if(escolha == 4) {
+
+        figura->putSphere(posX,posY,posZ,radius);
+    } else if(escolha == 5) {
+
+        figura->cutSphere(posX,posY,posZ,radius);
     }
 
     repaint();
@@ -130,6 +224,31 @@ void Plotter::setBlue(int _b)
     B = _b;
     figura->setColor(R,G,B,a);
     repaint();
+}
+
+void Plotter::setDimX(int _dimX)
+{
+    dimX = _dimX;
+}
+
+void Plotter::setDimY(int _dimY)
+{
+    dimY = _dimY;
+}
+
+void Plotter::setDimZ(int _dimZ)
+{
+    dimZ = _dimZ;
+}
+
+void Plotter::setRadius(int _radius)
+{
+    radius = _radius;
+}
+
+void Plotter::deleteMatriz()
+{
+    figura->~Sculptor();
 }
 
 void Plotter::mousePressEvent(QMouseEvent *event){

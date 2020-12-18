@@ -17,7 +17,7 @@ public:
 
     Plotter(int _nx=10,int _ny=10, int _nz=10);
 
-    ~Plotter(){};
+    ~Plotter();
 
 
 
@@ -36,10 +36,23 @@ public slots:
     void setNy(int _ny);
     void setNz(int _nz);
     void setPutVoxel();
+    void setCutVoxel();
+    void setPutBox();
+    void setCutBox();
+    void setPutEsphere();
+    void setCutEsphere();
+    void setPutElipse();
+    void setCutElipse();
     void setEscolha(int posX,int posY);
     void setRed(int _r);
     void setGreen(int _g);
     void setBlue(int _b);
+    void setDimX(int _dimX);
+    void setDimY(int _dimY);
+    void setDimZ(int _dimZ);
+
+    void setRadius(int _radius);
+    void deleteMatriz();
 
 signals:
 
