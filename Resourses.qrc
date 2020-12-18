@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icones">
+        <file alias="elipsecheia">Imagens/elipsep.png</file>
+        <file>Imagens/boxp.png</file>
+        <file>Imagens/cubob.png</file>
+        <file>Imagens/cubop.png</file>
+    </qresource>
+</RCC>

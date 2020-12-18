@@ -2,6 +2,9 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+TARGET = Paint3D
+TEMPLATE = app
+
 CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -10,10 +13,14 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    plotter.cpp \
+    sculptor.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    plotter.h \
+    sculptor.h
 
 FORMS += \
     mainwindow.ui
@@ -22,3 +29,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    recursos.qrc

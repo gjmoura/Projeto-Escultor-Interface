@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>Imagens/bg.jpg</file>
+        <file>Imagens/boxb.png</file>
+        <file>Imagens/boxp.png</file>
+        <file>Imagens/cubob.png</file>
+        <file>Imagens/cubop.png</file>
+        <file>Imagens/elipsep.png</file>
+        <file>Imagens/elipsev.png</file>
+        <file>Imagens/esferab.png</file>
+        <file>Imagens/esferap.png</file>
+    </qresource>
+</RCC>
