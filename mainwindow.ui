@@ -26,8 +26,8 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>410</y>
+      <x>20</x>
+      <y>430</y>
       <width>601</width>
       <height>125</height>
      </rect>
@@ -59,7 +59,7 @@
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>410</y>
+      <y>430</y>
       <width>151</width>
       <height>121</height>
      </rect>
@@ -595,6 +595,19 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>10</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Salvar</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -602,7 +615,7 @@
      <x>0</x>
      <y>0</y>
      <width>877</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArquivo">
@@ -651,6 +664,7 @@
     <slot>setRx(int)</slot>
     <slot>setRy(int)</slot>
     <slot>setRz(int)</slot>
+    <slot>salvarEscultura()</slot>
    </slots>
   </customwidget>
  </customwidgets>
@@ -679,8 +693,8 @@
    <slot>setNz(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>390</x>
-     <y>506</y>
+     <x>427</x>
+     <y>531</y>
     </hint>
     <hint type="destinationlabel">
      <x>332</x>
@@ -695,8 +709,8 @@
    <slot>setNz(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>196</x>
-     <y>504</y>
+     <x>233</x>
+     <y>531</y>
     </hint>
     <hint type="destinationlabel">
      <x>182</x>
@@ -711,8 +725,8 @@
    <slot>setRed(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>700</x>
-     <y>473</y>
+     <x>735</x>
+     <y>502</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -727,8 +741,8 @@
    <slot>setGreen(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>677</x>
-     <y>496</y>
+     <x>712</x>
+     <y>528</y>
     </hint>
     <hint type="destinationlabel">
      <x>563</x>
@@ -743,8 +757,8 @@
    <slot>setBlue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>669</x>
-     <y>527</y>
+     <x>704</x>
+     <y>554</y>
     </hint>
     <hint type="destinationlabel">
      <x>460</x>
@@ -973,6 +987,22 @@
     <hint type="destinationlabel">
      <x>557</x>
      <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>salvarEscultura()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>746</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>597</x>
+     <y>146</y>
     </hint>
    </hints>
   </connection>

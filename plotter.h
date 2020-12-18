@@ -55,6 +55,7 @@ public slots:
     void setRz(int _Rz);
     void setRadius(int _radius);
     void deleteMatriz();
+    void salvarEscultura();
 
 signals:
 

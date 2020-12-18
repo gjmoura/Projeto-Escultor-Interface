@@ -273,6 +273,12 @@ void Plotter::deleteMatriz()
     figura->~Sculptor();
 }
 
+void Plotter::salvarEscultura()
+{
+    figura->writeOFF((char*)"Escultura.off");
+    QString path = "/Escultura.off";
+}
+
 void Plotter::mousePressEvent(QMouseEvent *event){
 
     if((event->button() == Qt::LeftButton)){
