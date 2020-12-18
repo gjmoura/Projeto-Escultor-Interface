@@ -50,7 +50,9 @@ public slots:
     void setDimX(int _dimX);
     void setDimY(int _dimY);
     void setDimZ(int _dimZ);
-
+    void setRx(int _Rx);
+    void setRy(int _Ry);
+    void setRz(int _Rz);
     void setRadius(int _radius);
     void deleteMatriz();
 

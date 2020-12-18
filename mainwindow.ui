@@ -217,6 +217,9 @@
      </item>
      <item row="1" column="2">
       <widget class="QSlider" name="horizontalSlider_Raio">
+       <property name="pageStep">
+        <number>10</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -246,6 +249,9 @@
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="2" column="2">
       <widget class="QSlider" name="horizontalSlider_RZ">
+       <property name="pageStep">
+        <number>10</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -256,6 +262,9 @@
      </item>
      <item row="1" column="2">
       <widget class="QSlider" name="horizontalSlider_RY">
+       <property name="pageStep">
+        <number>10</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -263,6 +272,9 @@
      </item>
      <item row="0" column="2">
       <widget class="QSlider" name="horizontalSlider_RX">
+       <property name="pageStep">
+        <number>10</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -515,7 +527,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -525,6 +537,20 @@
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButtonPutVoxel">
+       <property name="text">
+        <string>PutVoxel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonCutVoxel">
+       <property name="text">
+        <string>CutVoxel</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QPushButton" name="pushButtonPutBox">
        <property name="text">
@@ -547,20 +573,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonCutElipse">
-       <property name="text">
-        <string>CutElipse</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButtonCutVoxel">
-       <property name="text">
-        <string>CutVoxel</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="pushButtonCutEsphere">
        <property name="text">
         <string>CutEsphere</string>
@@ -575,9 +587,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonPutVoxel">
+      <widget class="QPushButton" name="pushButtonCutElipse">
        <property name="text">
-        <string>PutVoxel</string>
+        <string>CutElipse</string>
        </property>
       </widget>
      </item>
@@ -590,7 +602,7 @@
      <x>0</x>
      <y>0</y>
      <width>877</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArquivo">
@@ -636,123 +648,14 @@
     <slot>setDimY(int)</slot>
     <slot>setDimZ(int)</slot>
     <slot>setRadius(int)</slot>
+    <slot>setRx(int)</slot>
+    <slot>setRy(int)</slot>
+    <slot>setRz(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
  <resources/>
  <connections>
-  <connection>
-   <sender>horizontalSlider_RED</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_RED</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>712</x>
-     <y>478</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>420</x>
-     <y>361</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_GREEN</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_GREEN</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>741</x>
-     <y>504</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>420</x>
-     <y>391</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_BLUE</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_BLUE</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>730</x>
-     <y>530</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>420</x>
-     <y>421</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_RZ</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_RZ</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>768</x>
-     <y>280</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>560</x>
-     <y>271</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_RY</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_RY</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>768</x>
-     <y>254</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>560</x>
-     <y>231</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_RX</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_RX</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>768</x>
-     <y>228</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>560</x>
-     <y>201</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider_Raio</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_RAIO</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>768</x>
-     <y>129</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>550</x>
-     <y>111</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>pushButtonPutVoxel</sender>
    <signal>clicked()</signal>
@@ -760,28 +663,12 @@
    <slot>setPutVoxel()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>640</x>
+     <x>26</x>
      <y>40</y>
     </hint>
     <hint type="destinationlabel">
      <x>25</x>
      <y>71</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSliderZ</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_3</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>424</x>
-     <y>506</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>598</x>
-     <y>510</y>
     </hint>
    </hints>
   </connection>
@@ -798,22 +685,6 @@
     <hint type="destinationlabel">
      <x>332</x>
      <y>403</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSliderZ</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_Z</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>240</x>
-     <y>506</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>250</x>
-     <y>411</y>
     </hint>
    </hints>
   </connection>
@@ -888,7 +759,7 @@
    <slot>setCutVoxel()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>407</x>
+     <x>144</x>
      <y>37</y>
     </hint>
     <hint type="destinationlabel">
@@ -904,7 +775,7 @@
    <slot>setPutBox()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>62</x>
+     <x>238</x>
      <y>48</y>
     </hint>
     <hint type="destinationlabel">
@@ -920,7 +791,7 @@
    <slot>setCutBox()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>146</x>
+     <x>321</x>
      <y>45</y>
     </hint>
     <hint type="destinationlabel">
@@ -936,7 +807,7 @@
    <slot>setPutEsphere()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>226</x>
+     <x>401</x>
      <y>48</y>
     </hint>
     <hint type="destinationlabel">
@@ -984,7 +855,7 @@
    <slot>setCutElipse()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>314</x>
+     <x>665</x>
      <y>48</y>
     </hint>
     <hint type="destinationlabel">
@@ -1054,6 +925,54 @@
     <hint type="destinationlabel">
      <x>463</x>
      <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_RX</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setRx(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>705</x>
+     <y>222</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>585</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_RY</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setRy(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>696</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>588</x>
+     <y>259</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_RZ</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setRz(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>688</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>557</x>
+     <y>281</y>
     </hint>
    </hints>
   </connection>

@@ -21,6 +21,9 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
        dimX = 1;
        dimY = 1;
        dimZ = 1;
+       Rx = 1;
+       Ry = 1;
+       Rz = 1;
        radius = 1;
 }
 
@@ -198,6 +201,10 @@ void Plotter::setEscolha(int posX,int posY)
     } else if(escolha == 5) {
 
         figura->cutSphere(posX,posY,posZ,radius);
+    } else if(escolha == 6){
+        figura->putEllipsoid(posX,posY,posZ,Rx, Ry, Rz);
+    }else if(escolha == 7){
+        figura->cutEllipsoid(posX,posY,posZ,Rx, Ry, Rz);
     }
 
     repaint();
@@ -239,6 +246,21 @@ void Plotter::setDimY(int _dimY)
 void Plotter::setDimZ(int _dimZ)
 {
     dimZ = _dimZ;
+}
+
+void Plotter::setRx(int _Rx)
+{
+    Rx = _Rx;
+}
+
+void Plotter::setRy(int _Ry)
+{
+    Ry = _Ry;
+}
+
+void Plotter::setRz(int _Rz)
+{
+    Rz = _Rz;
 }
 
 void Plotter::setRadius(int _radius)
