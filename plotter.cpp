@@ -3,20 +3,27 @@
 #include <QPainter>
 #include <QPen>
 #include <QBrush>
+#include <QDebug>
+#include <QMouseEvent>
 
+Sculptor *figura;
 
 Plotter::Plotter(QWidget *parent) : QWidget(parent)
 {
        nx=10;
        ny=10;
        nz=10;
+       posZ=0;
+       a=1.0;
        setMouseTracking(true);
-
+       escolha = 0;
+       figura = new Sculptor(nx,ny,nz);
 }
 
 void Plotter::paintEvent(QPaintEvent *event)
 {
     float linha=1,coluna,limiteX,limiteY;
+    Voxel voxelAtual;
 
     QPainter painter(this);
     QPen pen;
@@ -44,6 +51,16 @@ void Plotter::paintEvent(QPaintEvent *event)
     for(int i=0;  i < nx; i++) {
         linha = 1;
         for(int j=0; j < ny; j++) {
+
+            voxelAtual = figura->matriz(i,j,posZ);
+
+            if(voxelAtual.isOn) {
+                brush.setColor(QColor(voxelAtual.r,voxelAtual.g,voxelAtual.b));
+                painter.setBrush(brush);
+            } else {
+                brush.setColor(Qt::white);
+                painter.setBrush(brush);
+            }
             painter.drawRect(coluna,linha,limiteX,limiteY);
             linha=linha+limiteY;
         }
@@ -73,5 +90,61 @@ void Plotter::setNy(int _ny)
 
 void Plotter::setNz(int _nz)
 {
+    posZ = _nz;
+    repaint();
+}
 
+void Plotter::setPutVoxel()
+{
+    escolha = 0;
+    qDebug() << "posição em X , Y, Z ->";
+}
+
+void Plotter::setEscolha(int posX,int posY)
+{
+    if(escolha == 0) {
+        figura->putVoxel(posX,posY,posZ);
+    }
+
+    repaint();
+}
+
+void Plotter::setRed(int _r)
+{
+    qDebug() << _r;
+    R = _r;
+    figura->setColor(R,G,B,a);
+    repaint();
+}
+
+void Plotter::setGreen(int _g)
+{
+
+    G = _g;
+    figura->setColor(R,G,B,a);
+    repaint();
+}
+
+void Plotter::setBlue(int _b)
+{
+    B = _b;
+    figura->setColor(R,G,B,a);
+    repaint();
+}
+
+void Plotter::mousePressEvent(QMouseEvent *event){
+
+    if((event->button() == Qt::LeftButton)){
+        // logica para pegar as posiçoes da mastriz
+            float constX = width()/nx; // lagura
+            float constY = height()/ny; // altura
+            int posX,posY;
+
+            posX =  (int) (event->x()/ constX);
+            posY =  (int) (event->y()/ constY);
+            qDebug() << "string X" << posX;
+            qDebug() << "string y" << posY;
+
+            setEscolha(posX,posY);
+    }
 }

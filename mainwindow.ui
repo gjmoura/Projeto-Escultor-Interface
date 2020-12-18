@@ -36,10 +36,7 @@
      <string>GroupBox</string>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="2">
-      <widget class="QLCDNumber" name="lcdNumber"/>
-     </item>
-     <item row="4" column="1">
+     <item row="2" column="1">
       <widget class="QSlider" name="horizontalSliderZ">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -47,43 +44,12 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLCDNumber" name="lcdNumber_2"/>
+      <widget class="QLCDNumber" name="lcdNumber_3"/>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="labelX">
-       <property name="text">
-        <string>X</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
+     <item row="2" column="0">
       <widget class="QLabel" name="labelZ">
        <property name="text">
         <string>Z</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="labelY">
-       <property name="text">
-        <string>Y</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="2">
-      <widget class="QLCDNumber" name="lcdNumber_3"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QSlider" name="horizontalSliderY">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QSlider" name="horizontalSliderX">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -102,18 +68,24 @@
      <string>Cor</string>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="1" column="1">
+     <item row="0" column="0" rowspan="3">
+      <widget class="QOpenGLWidget" name="openGLWidget"/>
+     </item>
+     <item row="1" column="2">
       <widget class="QSlider" name="horizontalSlider_GREEN">
+       <property name="maximum">
+        <number>255</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
-     <item row="0" column="0" rowspan="3">
-      <widget class="QOpenGLWidget" name="openGLWidget"/>
-     </item>
-     <item row="0" column="1">
+     <item row="0" column="2">
       <widget class="QSlider" name="horizontalSlider_RED">
+       <property name="maximum">
+        <number>255</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -125,10 +97,34 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
+     <item row="2" column="2">
       <widget class="QSlider" name="horizontalSlider_BLUE">
+       <property name="maximum">
+        <number>255</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_RED">
+       <property name="text">
+        <string>R</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_green">
+       <property name="text">
+        <string>G</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_blue">
+       <property name="text">
+        <string>B</string>
        </property>
       </widget>
      </item>
@@ -497,8 +493,8 @@
    <widget class="Plotter" name="matriz" native="true">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>30</y>
+      <x>20</x>
+      <y>40</y>
       <width>600</width>
       <height>381</height>
      </rect>
@@ -508,6 +504,110 @@
       <width>0</width>
       <height>0</height>
      </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonPutVoxel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>51</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PutVoxel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonCutVoxel">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>10</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CutVoxel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonPutBox">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>10</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PutBox</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonCutBox">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CutBox</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonPutEsphere">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>10</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PutEsphere</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonCutEsphere">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>10</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CutEsphere</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonPutElipse">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>10</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PutElipse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonCutElipse">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>10</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CutElipse</string>
     </property>
    </widget>
   </widget>
@@ -525,92 +625,10 @@
      <string>Arquivo</string>
     </property>
     <addaction name="separator"/>
-    <addaction name="actionPutBox"/>
-    <addaction name="actionCutBox"/>
-    <addaction name="actionPutEsphere"/>
-    <addaction name="actionCutEsfera"/>
-    <addaction name="actionPutElipse"/>
-    <addaction name="actionCutElipse"/>
    </widget>
    <addaction name="menuArquivo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QToolBar" name="toolBar">
-   <property name="windowTitle">
-    <string>toolBar</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-   <addaction name="actionPutBox"/>
-   <addaction name="separator"/>
-   <addaction name="actionCutBox"/>
-   <addaction name="separator"/>
-   <addaction name="actionPutEsphere"/>
-   <addaction name="separator"/>
-   <addaction name="actionCutEsfera"/>
-   <addaction name="separator"/>
-   <addaction name="actionPutElipse"/>
-   <addaction name="separator"/>
-   <addaction name="actionCutElipse"/>
-  </widget>
-  <action name="actionPutElipse">
-   <property name="icon">
-    <iconset resource="recursos.qrc">
-     <normaloff>:/icons/Imagens/elipsep.png</normaloff>:/icons/Imagens/elipsep.png</iconset>
-   </property>
-   <property name="text">
-    <string>PutElipse</string>
-   </property>
-  </action>
-  <action name="actionCutElipse">
-   <property name="icon">
-    <iconset resource="recursos.qrc">
-     <normaloff>:/icons/Imagens/elipsev.png</normaloff>:/icons/Imagens/elipsev.png</iconset>
-   </property>
-   <property name="text">
-    <string>CutElipse</string>
-   </property>
-  </action>
-  <action name="actionPutBox">
-   <property name="icon">
-    <iconset resource="recursos.qrc">
-     <normaloff>:/icons/Imagens/boxp.png</normaloff>:/icons/Imagens/boxp.png</iconset>
-   </property>
-   <property name="text">
-    <string>PutBox</string>
-   </property>
-  </action>
-  <action name="actionCutBox">
-   <property name="icon">
-    <iconset resource="recursos.qrc">
-     <normaloff>:/icons/Imagens/boxb.png</normaloff>:/icons/Imagens/boxb.png</iconset>
-   </property>
-   <property name="text">
-    <string>CutBox</string>
-   </property>
-  </action>
-  <action name="actionPutEsphere">
-   <property name="icon">
-    <iconset resource="recursos.qrc">
-     <normaloff>:/icons/Imagens/esferap.png</normaloff>:/icons/Imagens/esferap.png</iconset>
-   </property>
-   <property name="text">
-    <string>PutEsphere</string>
-   </property>
-  </action>
-  <action name="actionCutEsfera">
-   <property name="icon">
-    <iconset resource="recursos.qrc">
-     <normaloff>:/icons/Imagens/esferab.png</normaloff>:/icons/Imagens/esferab.png</iconset>
-   </property>
-   <property name="text">
-    <string>CutEsfera</string>
-   </property>
-  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -622,61 +640,23 @@
     <slot>setNx(int)</slot>
     <slot>setNy(int)</slot>
     <slot>setNz(int)</slot>
+    <slot>PutVoxel()</slot>
+    <slot>CutVoxel()</slot>
+    <slot>PutBox()</slot>
+    <slot>CutBox()</slot>
+    <slot>PutEsphere()</slot>
+    <slot>CutEsphere()</slot>
+    <slot>PutElipse()</slot>
+    <slot>CutElipse()</slot>
+    <slot>setPutVoxel()</slot>
+    <slot>setRed(int)</slot>
+    <slot>setGreen(int)</slot>
+    <slot>setBlue(int)</slot>
    </slots>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="recursos.qrc"/>
- </resources>
+ <resources/>
  <connections>
-  <connection>
-   <sender>horizontalSliderX</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_X</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>87</x>
-     <y>521</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>59</x>
-     <y>450</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSliderY</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_Y</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>134</x>
-     <y>550</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>159</x>
-     <y>450</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSliderZ</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_Z</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>218</x>
-     <y>579</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>249</x>
-     <y>450</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>horizontalSlider_RED</sender>
    <signal>valueChanged(int)</signal>
@@ -684,12 +664,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>681</x>
-     <y>522</y>
+     <x>712</x>
+     <y>478</y>
     </hint>
     <hint type="destinationlabel">
-     <x>419</x>
-     <y>400</y>
+     <x>420</x>
+     <y>361</y>
     </hint>
    </hints>
   </connection>
@@ -700,12 +680,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>710</x>
-     <y>548</y>
+     <x>741</x>
+     <y>504</y>
     </hint>
     <hint type="destinationlabel">
-     <x>419</x>
-     <y>430</y>
+     <x>420</x>
+     <y>391</y>
     </hint>
    </hints>
   </connection>
@@ -716,12 +696,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>699</x>
-     <y>574</y>
+     <x>730</x>
+     <y>530</y>
     </hint>
     <hint type="destinationlabel">
-     <x>419</x>
-     <y>460</y>
+     <x>420</x>
+     <y>421</y>
     </hint>
    </hints>
   </connection>
@@ -733,11 +713,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>768</x>
-     <y>453</y>
+     <y>410</y>
     </hint>
     <hint type="destinationlabel">
-     <x>559</x>
-     <y>440</y>
+     <x>560</x>
+     <y>401</y>
     </hint>
    </hints>
   </connection>
@@ -748,12 +728,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>761</x>
-     <y>427</y>
+     <x>768</x>
+     <y>384</y>
     </hint>
     <hint type="destinationlabel">
-     <x>559</x>
-     <y>410</y>
+     <x>560</x>
+     <y>371</y>
     </hint>
    </hints>
   </connection>
@@ -764,12 +744,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>758</x>
-     <y>401</y>
+     <x>768</x>
+     <y>358</y>
     </hint>
     <hint type="destinationlabel">
-     <x>559</x>
-     <y>380</y>
+     <x>560</x>
+     <y>341</y>
     </hint>
    </hints>
   </connection>
@@ -780,12 +760,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>732</x>
-     <y>323</y>
+     <x>768</x>
+     <y>280</y>
     </hint>
     <hint type="destinationlabel">
-     <x>559</x>
-     <y>310</y>
+     <x>560</x>
+     <y>271</y>
     </hint>
    </hints>
   </connection>
@@ -796,12 +776,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>759</x>
-     <y>297</y>
+     <x>768</x>
+     <y>254</y>
     </hint>
     <hint type="destinationlabel">
-     <x>559</x>
-     <y>270</y>
+     <x>560</x>
+     <y>231</y>
     </hint>
    </hints>
   </connection>
@@ -812,12 +792,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>766</x>
-     <y>271</y>
+     <x>768</x>
+     <y>228</y>
     </hint>
     <hint type="destinationlabel">
-     <x>559</x>
-     <y>240</y>
+     <x>560</x>
+     <y>201</y>
     </hint>
    </hints>
   </connection>
@@ -828,44 +808,156 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>757</x>
-     <y>171</y>
+     <x>768</x>
+     <y>129</y>
     </hint>
     <hint type="destinationlabel">
-     <x>549</x>
-     <y>150</y>
+     <x>550</x>
+     <y>111</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>horizontalSliderX</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber</receiver>
-   <slot>display(int)</slot>
+   <sender>pushButtonPutVoxel</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>matriz</receiver>
+   <slot>PutVoxel()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>469</x>
-     <y>517</y>
+     <x>44</x>
+     <y>44</y>
     </hint>
     <hint type="destinationlabel">
-     <x>541</x>
-     <y>515</y>
+     <x>46</x>
+     <y>99</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>horizontalSliderY</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber_2</receiver>
-   <slot>display(int)</slot>
+   <sender>pushButtonCutVoxel</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>matriz</receiver>
+   <slot>CutVoxel()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>506</x>
-     <y>546</y>
+     <x>90</x>
+     <y>45</y>
     </hint>
     <hint type="destinationlabel">
-     <x>545</x>
-     <y>548</y>
+     <x>91</x>
+     <y>98</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonPutBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>matriz</receiver>
+   <slot>PutBox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>161</x>
+     <y>43</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>160</x>
+     <y>109</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCutBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>matriz</receiver>
+   <slot>CutBox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>34</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>235</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonPutEsphere</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>matriz</receiver>
+   <slot>PutEsphere()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>298</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCutEsphere</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>matriz</receiver>
+   <slot>CutEsphere()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>372</x>
+     <y>36</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>370</x>
+     <y>106</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonPutElipse</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>matriz</receiver>
+   <slot>PutElipse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>444</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>450</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonCutElipse</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>matriz</receiver>
+   <slot>CutElipse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>499</x>
+     <y>50</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>500</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonPutVoxel</sender>
+   <signal>clicked()</signal>
+   <receiver>matriz</receiver>
+   <slot>setPutVoxel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>23</x>
+     <y>39</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>25</x>
+     <y>71</y>
     </hint>
    </hints>
   </connection>
@@ -876,44 +968,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>402</x>
-     <y>571</y>
+     <x>424</x>
+     <y>506</y>
     </hint>
     <hint type="destinationlabel">
-     <x>549</x>
-     <y>578</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSliderX</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>matriz</receiver>
-   <slot>setNx(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>214</x>
-     <y>514</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>204</x>
-     <y>437</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSliderY</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>matriz</receiver>
-   <slot>setNy(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>281</x>
-     <y>540</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>284</x>
-     <y>444</y>
+     <x>598</x>
+     <y>510</y>
     </hint>
    </hints>
   </connection>
@@ -924,12 +984,92 @@
    <slot>setNz(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>368</x>
-     <y>571</y>
+     <x>390</x>
+     <y>506</y>
     </hint>
     <hint type="destinationlabel">
      <x>332</x>
      <y>403</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderZ</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_Z</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>506</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>411</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderZ</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setNz(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>504</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>414</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_RED</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setRed(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>700</x>
+     <y>473</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>418</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_GREEN</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setGreen(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>677</x>
+     <y>496</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>563</x>
+     <y>419</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_BLUE</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setBlue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>669</x>
+     <y>527</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>460</x>
+     <y>412</y>
     </hint>
    </hints>
   </connection>

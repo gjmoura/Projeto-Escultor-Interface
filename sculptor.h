@@ -15,7 +15,7 @@ struct Voxel {
   bool isOn; /*!< O dado isOn do tipo boolean informa se o Voxel é visível ou não. */
 };
 
-/*! \brief Sculptor é uma classe qu manipula os pixels da matriz tridimensional com seus métodos.
+/*! \brief Sculptor é uma classe que manipula os pixels da matriz tridimensional com seus métodos.
 *
 */
 class Sculptor {
@@ -30,21 +30,19 @@ class Sculptor {
       float b; /*!< O dado b do tipo float representa a cor azul atual que será aplicada ao voxel. */
       float a; /*!< O dado a do tipo float representa a transparência atual que será aplicada ao voxel. */
     public:
-       /*! \brief Construtor da classe*/
       Sculptor(int _nx,int _ny,int _nz);
-       /*! \brief Destrutor da classe*/
       ~Sculptor();
       void setColor(float r, float g, float b, float alpha); /*!< Função para adicionar cor ao Voxel. */
       void putVoxel(int x, int y, int z); /*!< Função para ativar o Voxel atual. */
       void cutVoxel(int x, int y, int z); /*!< Função para desativar o Voxel atual. */
+      void putBox(int x0, int x1, int y0, int y1, int z0, int z1); /*!< Função para ativar um intervalo de Voxel. */
+      void cutBox(int x0, int x1, int y0, int y1, int z0, int z1); /*!< Função para desativar um intervalo de Voxel */
+      void putSphere(int xcenter, int ycenter, int zcenter, int radius); /*!< Função para criar uma esfera. */
+      void cutSphere(int xcenter, int ycenter, int zcenter, int radius); /*!< Função para cortar uma esfera. */
+      void putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz); /*!< Função para criar uma elipse. */
+      void cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz); /*!< Função para cortar uma elipse. */
       void writeOFF(char* filename); /*!< Função para criar um arquivo com os dados da escultura. */
-      /*! \brief Esse método retorna a dimensão x da matriz*/
-      int getNx();
-      /*! \brief Esse método retorna a dimensão y da matriz*/
-      int getNy();
-      /*! \brief Esse método retorna a dimensão z da matriz*/
-      int getNz();
+      Voxel matriz(int x, int y, int z);
     };
 
 #endif // SCULPTOR_H
-

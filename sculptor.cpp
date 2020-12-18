@@ -11,6 +11,7 @@ using namespace std;
 Sculptor::Sculptor(int _nx, int _ny, int _nz)
 {
     //Define a dimensão da escultura
+
     nx = _nx;
     ny = _ny;
     nz = _nz;
@@ -23,8 +24,13 @@ Sculptor::Sculptor(int _nx, int _ny, int _nz)
             for(int k=0; k< nz; k++) {
                 v[i][j][k].isOn = false;
             }
+
         }
     }
+
+
+
+
 }
 
 
@@ -60,9 +66,117 @@ void Sculptor::cutVoxel(int x, int y, int z) {
     //Desativa o Voxel atual
     v[x][y][z].isOn = false;
 }
+void Sculptor::putBox(int x0, int x1, int y0, int y1, int z0, int z1) {
+    //Usar um for para percorrer a matriz 3D, ativando os Voxels e atribuindo as propriedades em cada voxel
+    for(int vetorX = x0; vetorX < x1; vetorX++) {
+        for( int vetorY = y0; vetorY < y1; vetorY++) {
+            for( int vetorZ = z0; vetorZ < z1; vetorZ++) {
+                v[vetorX][vetorY][vetorZ].isOn = true;
+                v[vetorX][vetorY][vetorZ].r = r;
+                v[vetorX][vetorY][vetorZ].g = g;
+                v[vetorX][vetorY][vetorZ].b = b;
+                v[vetorX][vetorY][vetorZ].a = a;
+
+            }
+        }
+    }
+
+}
+void Sculptor::cutBox(int x0, int x1, int y0, int y1, int z0, int z1) {
+    //Usar um for para percorrer a matriz 3D e ir desativando os Voxels
+    for(int vetorX = x0; vetorX < x1; vetorX++) {
+        for( int vetorY = y0; vetorY < y1; vetorY++) {
+            for( int vetorZ = z0; vetorZ < z1; vetorZ++) {
+                v[vetorX][vetorY][vetorZ].isOn = false;
+            }
+        }
+    }
+
+}
+void Sculptor::putSphere(int xcenter, int ycenter, int zcenter, int radius) {
+
+    // Válida a posição do voxel pela equação da esfera ativando-o
+    for(int vetorX = 0; vetorX < nx; vetorX++) {
+        for( int vetorY = 0; vetorY < ny; vetorY++) {
+            for( int vetorZ = 0; vetorZ < nz; vetorZ++) {
+
+               int value = (vetorX - xcenter)*(vetorX - xcenter) + (vetorY - ycenter)*(vetorY - ycenter) + (vetorZ - zcenter)*(vetorZ - zcenter);
+                if( value <= (radius)*(radius) ) {
+                    v[vetorX][vetorY][vetorZ].isOn = true;
+                    v[vetorX][vetorY][vetorZ].r = r;
+                    v[vetorX][vetorY][vetorZ].g = g;
+                    v[vetorX][vetorY][vetorZ].b = b;
+                    v[vetorX][vetorY][vetorZ].a = a;
+
+                }
+
+            }
+        }
+    }
+
+}
+void Sculptor::cutSphere(int xcenter, int ycenter, int zcenter, int radius) {
+
+    // Válida a posição do voxel pela equação da esfera, desativando-o
+    for(int vetorX = 0; vetorX < nx; vetorX++) {
+        for( int vetorY = 0; vetorY < ny; vetorY++) {
+            for( int vetorZ = 0; vetorZ < nz; vetorZ++) {
+
+               int value = (vetorX - xcenter)*(vetorX - xcenter) + (vetorY - ycenter)*(vetorY - ycenter) + (vetorZ - zcenter)*(vetorZ - zcenter);
+                if( value <= (radius)*(radius) ) {
+                    v[vetorX][vetorY][vetorZ].isOn = false;
+
+                }
+
+            }
+        }
+    }
+
+}
+
+void Sculptor::putEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz) {
+
+    // Válida a posição do voxel pela equação da elipsóide ativando-o
+    for(int vetorX = 0; vetorX < nx; vetorX++) {
+        for( int vetorY = 0; vetorY < ny; vetorY++) {
+            for( int vetorZ = 0; vetorZ < nz; vetorZ++) {
+
+                int value = ((vetorX - xcenter)*(vetorX - xcenter))/(rx*rx) + ((vetorY - ycenter)*(vetorY - ycenter))/(ry*ry) + ((vetorZ - zcenter)*(vetorZ - zcenter))/(rz*rz);
+                if( value <= 1 ) {
+                    v[vetorX][vetorY][vetorZ].isOn = true;
+                    v[vetorX][vetorY][vetorZ].r = r;
+                    v[vetorX][vetorY][vetorZ].g = g;
+                    v[vetorX][vetorY][vetorZ].b = b;
+                    v[vetorX][vetorY][vetorZ].a = a;
+
+                }
+
+            }
+        }
+    }
+
+}
+
+void Sculptor::cutEllipsoid(int xcenter, int ycenter, int zcenter, int rx, int ry, int rz) {
+
+    // Válida a posição do voxel pela equação da elipsóide, desativando-o
+    for(int vetorX = 0; vetorX < nx; vetorX++) {
+        for( int vetorY = 0; vetorY < ny; vetorY++) {
+            for( int vetorZ = 0; vetorZ < nz; vetorZ++) {
+
+                int value = ((vetorX - xcenter)*(vetorX - xcenter))/(rx*rx) + ((vetorY - ycenter)*(vetorY - ycenter))/(ry*ry) + ((vetorZ - zcenter)*(vetorZ - zcenter))/(rz*rz);
+                if( value <= 1 ) {
+                    v[vetorX][vetorY][vetorZ].isOn = false;
+                }
+            }
+        }
+    }
+}
 void Sculptor::writeOFF(char* filename) {
 
-    int nVoxels=0, nFaces = 0;
+
+
+    int nVoxels, nFaces = 0;
     ofstream fout;
     fout.open(filename);
     if(fout.is_open()) {
@@ -84,6 +198,7 @@ void Sculptor::writeOFF(char* filename) {
          for(int j = 0; j<ny; j++){
              for(int k = 0; k<nz; k++){
                  if(v[i][j][k].isOn){
+
                    fout << i-0.5 << " " << j+0.5 << " " << k-0.5 << endl;
                    fout << i-0.5 << " " << j-0.5 << " " << k-0.5 << endl;
                    fout << i+0.5 << " " << j-0.5 << " " << k-0.5 << endl;
@@ -92,6 +207,7 @@ void Sculptor::writeOFF(char* filename) {
                    fout << i-0.5 << " " << j-0.5 << " " << k+0.5 << endl;
                    fout << i+0.5 << " " << j-0.5 << " " << k+0.5 << endl;
                    fout << i+0.5 << " " << j+0.5 << " " << k+0.5 << endl;
+
                 }
             }
         }
@@ -115,17 +231,10 @@ void Sculptor::writeOFF(char* filename) {
 
     fout.close();
     cout << "Arquivo salvo" << endl;
+
 }
 
-int Sculptor::getNx() {
-    return nx;
-}
-
-
-int Sculptor::getNy() {
-    return ny;
-}
-
-int Sculptor::getNz() {
-    return nz;
+Voxel Sculptor::matriz(int x, int y, int z)
+{
+    return v[x][y][z];
 }

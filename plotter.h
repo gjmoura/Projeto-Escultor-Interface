@@ -11,7 +11,7 @@ public:
     explicit Plotter(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *event);
     //void mouseMoveEvent(QMouseEvent *event);
-    //void mousePressEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
     //void mouseReleaseEvent(QMouseEvent *event);
     //void drawShape(int shape, bool mousePressed);
 
@@ -24,15 +24,22 @@ public:
     int nx, ny, nz;
     int dimX, dimY, dimZ;
     int Rx, Ry, Rz;
-    int R, G, B, a;
+    float R, G, B, a;
     int radius;
     int eixo;
+    int escolha;
+    int posZ;
     unsigned int plano;
 
 public slots:
     void setNx(int _nx);
     void setNy(int _ny);
     void setNz(int _nz);
+    void setPutVoxel();
+    void setEscolha(int posX,int posY);
+    void setRed(int _r);
+    void setGreen(int _g);
+    void setBlue(int _b);
 
 signals:
 
