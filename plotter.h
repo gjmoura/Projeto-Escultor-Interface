@@ -15,7 +15,13 @@ public:
     //void mouseReleaseEvent(QMouseEvent *event);
     //void drawShape(int shape, bool mousePressed);
 
-    int x, y, z;
+    Plotter(int _nx=10,int _ny=10, int _nz=10);
+
+    ~Plotter(){};
+
+
+
+    int nx, ny, nz;
     int dimX, dimY, dimZ;
     int Rx, Ry, Rz;
     int R, G, B, a;
@@ -23,10 +29,8 @@ public:
     int eixo;
     unsigned int plano;
 
-private:
-    std::vector<std::vector<Voxel>> aux;
-    Sculptor *figura;
-    unsigned int forma;
+public slots:
+    void setNx(int _nx);
 
 signals:
 

@@ -36,12 +36,8 @@
      <string>GroupBox</string>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="2" column="0">
-      <widget class="QLabel" name="labelY">
-       <property name="text">
-        <string>Y</string>
-       </property>
-      </widget>
+     <item row="0" column="2">
+      <widget class="QLCDNumber" name="lcdNumber"/>
      </item>
      <item row="4" column="1">
       <widget class="QSlider" name="horizontalSliderZ">
@@ -50,12 +46,8 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QSlider" name="horizontalSliderY">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
+     <item row="2" column="2">
+      <widget class="QLCDNumber" name="lcdNumber_2"/>
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="labelX">
@@ -68,6 +60,23 @@
       <widget class="QLabel" name="labelZ">
        <property name="text">
         <string>Z</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="labelY">
+       <property name="text">
+        <string>Y</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QLCDNumber" name="lcdNumber_3"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSlider" name="horizontalSliderY">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -485,7 +494,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QWidget" name="matriz" native="true">
+   <widget class="Plotter" name="matriz" native="true">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -494,25 +503,12 @@
       <height>381</height>
      </rect>
     </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>601</width>
-       <height>381</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="recursos.qrc">:/icons/Imagens/bg.jpg</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -521,7 +517,7 @@
      <x>0</x>
      <y>0</y>
      <width>877</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuArquivo">
@@ -616,6 +612,17 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Plotter</class>
+   <extends>QWidget</extends>
+   <header>plotter.h</header>
+   <container>1</container>
+   <slots>
+    <slot>setPlotter(int)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="recursos.qrc"/>
  </resources>
@@ -627,12 +634,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>58</x>
-     <y>481</y>
+     <x>87</x>
+     <y>521</y>
     </hint>
     <hint type="destinationlabel">
-     <x>81</x>
-     <y>426</y>
+     <x>59</x>
+     <y>450</y>
     </hint>
    </hints>
   </connection>
@@ -643,12 +650,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>105</x>
-     <y>509</y>
+     <x>134</x>
+     <y>550</y>
     </hint>
     <hint type="destinationlabel">
-     <x>191</x>
-     <y>424</y>
+     <x>159</x>
+     <y>450</y>
     </hint>
    </hints>
   </connection>
@@ -659,12 +666,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>189</x>
-     <y>529</y>
+     <x>218</x>
+     <y>579</y>
     </hint>
     <hint type="destinationlabel">
-     <x>294</x>
-     <y>424</y>
+     <x>249</x>
+     <y>450</y>
     </hint>
    </hints>
   </connection>
@@ -675,12 +682,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>663</x>
-     <y>476</y>
+     <x>681</x>
+     <y>522</y>
     </hint>
     <hint type="destinationlabel">
-     <x>455</x>
-     <y>370</y>
+     <x>419</x>
+     <y>400</y>
     </hint>
    </hints>
   </connection>
@@ -691,12 +698,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>692</x>
-     <y>504</y>
+     <x>710</x>
+     <y>548</y>
     </hint>
     <hint type="destinationlabel">
-     <x>464</x>
-     <y>406</y>
+     <x>419</x>
+     <y>430</y>
     </hint>
    </hints>
   </connection>
@@ -707,12 +714,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>681</x>
-     <y>534</y>
+     <x>699</x>
+     <y>574</y>
     </hint>
     <hint type="destinationlabel">
-     <x>422</x>
-     <y>440</y>
+     <x>419</x>
+     <y>460</y>
     </hint>
    </hints>
   </connection>
@@ -723,12 +730,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>714</x>
-     <y>406</y>
+     <x>768</x>
+     <y>453</y>
     </hint>
     <hint type="destinationlabel">
-     <x>605</x>
-     <y>409</y>
+     <x>559</x>
+     <y>440</y>
     </hint>
    </hints>
   </connection>
@@ -739,12 +746,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>701</x>
-     <y>370</y>
+     <x>761</x>
+     <y>427</y>
     </hint>
     <hint type="destinationlabel">
-     <x>616</x>
-     <y>380</y>
+     <x>559</x>
+     <y>410</y>
     </hint>
    </hints>
   </connection>
@@ -755,12 +762,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>698</x>
-     <y>349</y>
+     <x>758</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
-     <x>607</x>
-     <y>352</y>
+     <x>559</x>
+     <y>380</y>
     </hint>
    </hints>
   </connection>
@@ -771,12 +778,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>690</x>
-     <y>277</y>
+     <x>732</x>
+     <y>323</y>
     </hint>
     <hint type="destinationlabel">
-     <x>589</x>
-     <y>282</y>
+     <x>559</x>
+     <y>310</y>
     </hint>
    </hints>
   </connection>
@@ -787,12 +794,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>717</x>
-     <y>248</y>
+     <x>759</x>
+     <y>297</y>
     </hint>
     <hint type="destinationlabel">
-     <x>596</x>
-     <y>251</y>
+     <x>559</x>
+     <y>270</y>
     </hint>
    </hints>
   </connection>
@@ -803,12 +810,12 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>724</x>
-     <y>222</y>
+     <x>766</x>
+     <y>271</y>
     </hint>
     <hint type="destinationlabel">
-     <x>614</x>
-     <y>217</y>
+     <x>559</x>
+     <y>240</y>
     </hint>
    </hints>
   </connection>
@@ -819,12 +826,76 @@
    <slot>display(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>703</x>
-     <y>121</y>
+     <x>757</x>
+     <y>171</y>
     </hint>
     <hint type="destinationlabel">
-     <x>579</x>
-     <y>129</y>
+     <x>549</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderX</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>469</x>
+     <y>517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>541</x>
+     <y>515</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderY</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_2</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>506</x>
+     <y>546</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>545</x>
+     <y>548</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderZ</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber_3</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>402</x>
+     <y>571</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>578</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSliderX</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>matriz</receiver>
+   <slot>setPlotter(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>508</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>95</x>
+     <y>431</y>
     </hint>
    </hints>
   </connection>
