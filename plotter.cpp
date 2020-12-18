@@ -10,7 +10,7 @@ Plotter::Plotter(QWidget *parent) : QWidget(parent)
        nx=10;
        ny=10;
        nz=10;
-
+       setMouseTracking(true);
 
 }
 
@@ -63,4 +63,15 @@ void Plotter::setNx(int _nx)
 {
     nx =_nx;
     repaint();
+}
+
+void Plotter::setNy(int _ny)
+{
+    nx =_ny;
+    repaint();
+}
+
+void Plotter::setNz(int _nz)
+{
+
 }

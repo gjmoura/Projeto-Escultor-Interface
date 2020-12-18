@@ -31,6 +31,8 @@ public:
 
 public slots:
     void setNx(int _nx);
+    void setNy(int _ny);
+    void setNz(int _nz);
 
 signals:
 
